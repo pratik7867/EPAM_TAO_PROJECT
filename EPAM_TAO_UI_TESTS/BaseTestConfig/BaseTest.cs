@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Reflection;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using EPAM_TAO_CORE_UI_TAF.TestSetup;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
-using System.Reflection;
 using EPAM_TAO_UI_POM.Pages.Products;
 using EPAM_TAO_UI_POM.Pages.Cart;
 using EPAM_TAO_UI_POM.Pages.Checkout;
