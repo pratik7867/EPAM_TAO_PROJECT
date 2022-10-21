@@ -141,6 +141,10 @@
     <None Include="UITests\Features\Checkout\CheckoutFeature.feature" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EPAM_TAO_CORE_COMMON_TAF\EPAM_TAO_CORE_COMMON_TAF.csproj">
+      <Project>{12a7c078-83cc-43eb-968f-0a0dc21cff4d}</Project>
+      <Name>EPAM_TAO_CORE_COMMON_TAF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EPAM_TAO_CORE_UI_TAF\EPAM_TAO_CORE_UI_TAF.csproj">
       <Project>{f61fa2f7-187a-4915-b1e6-d2f57e1e1c01}</Project>
       <Name>EPAM_TAO_CORE_UI_TAF</Name>

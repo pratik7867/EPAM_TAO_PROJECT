@@ -29,7 +29,7 @@ namespace EPAM_TAO_UI_TESTS.UITests.Checkout
 
                 //Navigate to Cart Page and Validate Price of the added Product
                 cartPage = productsPage.ClickOnShoppingCart();
-                Assert.AreEqual(productPrice, cartPage.GetProductPrice());                
+                Assert.AreEqual(productPrice, cartPage.GetProductPrice());
 
                 //Navigate to Checkout Page and Fill up mandatory details to conitune
                 checkoutPage = cartPage.ClickOnCheckout();

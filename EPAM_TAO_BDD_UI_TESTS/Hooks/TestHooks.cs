@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Configuration;
 using TechTalk.SpecFlow;
 using BoDi;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_CORE_UI_TAF.TestSetup;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
 
@@ -28,8 +29,8 @@ namespace EPAM_TAO_BDD_UI_TESTS.Hooks
                 driver = InitBrowser((BrowserType)Enum.Parse(typeof(BrowserType), strBrowser.ToUpper()));
                 objectContainer.RegisterInstanceAs(driver);
 
-                CommonUtilities.commonUtilities.NavigateToURL(driver, strSiteURL);
-                CommonUtilities.commonUtilities.MaximizeWindow(driver);
+                SeleniumUtilities.seleniumUtilities.NavigateToURL(driver, strSiteURL);
+                SeleniumUtilities.seleniumUtilities.MaximizeWindow(driver);
 
                 ExtentReportHelper.GetInstance(strAUT, driver).CreateTest(scenarioContext.ScenarioInfo.Title);
             }
@@ -68,13 +69,13 @@ namespace EPAM_TAO_BDD_UI_TESTS.Hooks
                     ErrorLogger.errorLogger.ErrorLog(MethodBase.GetCurrentMethod().Name, scenarioContext.TestError, driver);
 
                     if (stepType == "Given")
-                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, CommonUtilities.commonUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
+                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, SeleniumUtilities.seleniumUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
                     if (stepType == "When")
-                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, CommonUtilities.commonUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
+                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, SeleniumUtilities.seleniumUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
                     if (stepType == "Then")
-                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, CommonUtilities.commonUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
+                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, SeleniumUtilities.seleniumUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
                     if (stepType == "And")
-                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, CommonUtilities.commonUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
+                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestNodeFailed(stepType, ScenarioStepContext.Current.StepInfo.Text, failureMessage, SeleniumUtilities.seleniumUtilities.TakeScreenshot(driver, ScenarioStepContext.Current.StepInfo.Text));
                 }
             }
             catch(Exception ex)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_CORE_API_TAF.APIHelpers;
 using EPAM_TAO_API_TESTS.BaseAPITestConfig;
 using EPAM_TAO_API_TESTS.APIClasses.APIRequestClasses.Posts;
@@ -11,9 +12,9 @@ namespace EPAM_TAO_API_TESTS.APITests
 {
     /*
      *Order of Test Execution -
-     * CreatePostAPI()
-     * UpdatePostAPI()
-     * DeletePostAPI()
+     * A_CreatePostAPI()
+     * B_UpdatePostAPI()
+     * C_DeletePostAPI()
      */
 
     [TestClass]
@@ -33,7 +34,7 @@ namespace EPAM_TAO_API_TESTS.APITests
                 dictOfPostsReqData.Add("id", 2);
                 dictOfPostsReqData.Add("title", "json-server2");
                 dictOfPostsReqData.Add("author", "typicode2");
-                var requestData = DataHelper.dataHelper.GetAPIData(new CreatePostsReq(), dictOfPostsReqData);
+                var requestData = DataHelper.dataHelper.GetData(new CreatePostsReq(), dictOfPostsReqData);
 
                 int expectedResponseCode = 201;
 
@@ -78,7 +79,7 @@ namespace EPAM_TAO_API_TESTS.APITests
                 dictOfPostsReqData.Add("id", 2);
                 dictOfPostsReqData.Add("title", "json-server3");
                 dictOfPostsReqData.Add("author", "typicode3");
-                var requestData = DataHelper.dataHelper.GetAPIData(new UpdatePostsReq(), dictOfPostsReqData);
+                var requestData = DataHelper.dataHelper.GetData(new UpdatePostsReq(), dictOfPostsReqData);
 
                 int expectedResponseCode = 200;
 

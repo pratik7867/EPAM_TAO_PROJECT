@@ -40,16 +40,16 @@ namespace EPAM_TAO_UI_POM.Pages.Cart
 
         public string GetProductPrice()
         {
-            CommonUtilities.commonUtilities.WaitForPageLoad(driver, 10);
+            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
 
-            divProductPriceElement = CommonUtilities.commonUtilities.GetElement(driver, divProductPriceLocator);
+            divProductPriceElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, divProductPriceLocator);
 
             return divProductPriceElement.Text;
         }
 
         public CheckoutPage ClickOnCheckout()
         {
-            btnCheckoutElement = CommonUtilities.commonUtilities.GetElement(driver, btnCheckoutLocator);
+            btnCheckoutElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnCheckoutLocator);
             btnCheckoutElement.Click();
 
             return CheckoutPage.GetInstance(driver);

@@ -2,12 +2,11 @@
 using System.Data;
 using System.IO;
 using System.Reflection;
-using ExcelDataReader;
-using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using ExcelDataReader;
 
-namespace EPAM_TAO_CORE_API_TAF.APIHelpers
+namespace EPAM_TAO_CORE_COMMON_TAF.CommonHelpers
 {
     public class DataHelper
     {
@@ -34,7 +33,7 @@ namespace EPAM_TAO_CORE_API_TAF.APIHelpers
             }
         }
 
-        public DataTable GetAPIData(string strFileName, string strSheetName)
+        public DataTable GetData(string strFileName, string strSheetName)
         {
             try
             {
@@ -68,7 +67,7 @@ namespace EPAM_TAO_CORE_API_TAF.APIHelpers
             }             
         }
 
-        public string GetAPIData(object instance, Dictionary<string, dynamic> dictOfReqData)
+        public string GetData(object instance, Dictionary<string, dynamic> dictOfReqData)
         {
             try
             {

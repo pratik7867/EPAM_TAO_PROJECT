@@ -1,11 +1,11 @@
 ﻿using TechTalk.SpecFlow;
 using FluentAssertions;
 using RestSharp;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_CORE_API_TAF.APIHelpers;
 using EPAM_TAO_BDD_API_TESTS.APITests.Steps.Common;
 using EPAM_TAO_BDD_API_TESTS.APIClasses.APIRequestClasses.Posts;
 using EPAM_TAO_BDD_API_TESTS.APIClasses.APIResponseClasses.Posts;
-
 
 namespace EPAM_TAO_BDD_API_TESTS.APITests.Steps.Posts
 {
@@ -32,7 +32,7 @@ namespace EPAM_TAO_BDD_API_TESTS.APITests.Steps.Posts
             dictOfPostsReqData.Add("id", intId);
             dictOfPostsReqData.Add("title", strTitle);
             dictOfPostsReqData.Add("author", strAuthor);
-            requestData = DataHelper.dataHelper.GetAPIData(new CreatePostsReq(), dictOfPostsReqData);
+            requestData = DataHelper.dataHelper.GetData(new CreatePostsReq(), dictOfPostsReqData);
 
             restRequest = RequestHelper.requestHelper.CreatePostRequest(strResource, requestData, DataFormat.Json);
         }
@@ -69,7 +69,7 @@ namespace EPAM_TAO_BDD_API_TESTS.APITests.Steps.Posts
             dictOfPostsReqData.Add("id", intId);
             dictOfPostsReqData.Add("title", strTitle);
             dictOfPostsReqData.Add("author", strAuthor);
-            requestData = DataHelper.dataHelper.GetAPIData(new UpdatePostsReq(), dictOfPostsReqData);
+            requestData = DataHelper.dataHelper.GetData(new UpdatePostsReq(), dictOfPostsReqData);
 
             restRequest = RequestHelper.requestHelper.CreatePutRequest(strResource, requestData, DataFormat.Json);
         }

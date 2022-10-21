@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using RestSharp;
-using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 
 namespace EPAM_TAO_CORE_API_TAF.APIHelpers
 {

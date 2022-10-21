@@ -6,34 +6,35 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 
 namespace EPAM_TAO_CORE_UI_TAF.UI_Helpers
 {
-    public class CommonUtilities
+    public class SeleniumUtilities
     {
         private static readonly object syncLock = new object();
-        private static CommonUtilities _commonUtilities = null;
+        private static SeleniumUtilities _seleniumUtilities = null;
 
         private Actions actions;
 
         private string strParentDir, strSSDir, strPathToSSFile;
 
-        CommonUtilities()
+        SeleniumUtilities()
         {
 
         }
 
-        public static CommonUtilities commonUtilities
+        public static SeleniumUtilities seleniumUtilities
         {
             get
             {
                 lock(syncLock)
                 {
-                    if(_commonUtilities == null)
+                    if(_seleniumUtilities == null)
                     {
-                        _commonUtilities = new CommonUtilities();
+                        _seleniumUtilities = new SeleniumUtilities();
                     }
-                    return _commonUtilities;
+                    return _seleniumUtilities;
                 }
             }
         }        

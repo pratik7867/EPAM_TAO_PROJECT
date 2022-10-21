@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Reflection;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_CORE_UI_TAF.TestSetup;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
 using EPAM_TAO_UI_POM.Pages.Products;
@@ -30,8 +31,8 @@ namespace EPAM_TAO_UI_TESTS.BaseTestConfig
             try
             {
                 driver = InitBrowser((BrowserType)Enum.Parse(typeof(BrowserType), strBrowser.ToUpper()));
-                CommonUtilities.commonUtilities.NavigateToURL(driver, strSiteURL);
-                CommonUtilities.commonUtilities.MaximizeWindow(driver);
+                SeleniumUtilities.seleniumUtilities.NavigateToURL(driver, strSiteURL);
+                SeleniumUtilities.seleniumUtilities.MaximizeWindow(driver);
 
                 ExtentReportHelper.GetInstance(strAUT, driver).CreateTest(TestContext.CurrentContext.Test.Name);
             }
@@ -56,7 +57,7 @@ namespace EPAM_TAO_UI_TESTS.BaseTestConfig
                         var errorMessage = "<pre>" + TestContext.CurrentContext.Result.Message + "</pre>";
 
                         ErrorLogger.errorLogger.ErrorLog(MethodBase.GetCurrentMethod().Name, testEx, driver);
-                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestStatusFail($"<br>{errorMessage}<br>Stack Trace: <br>{stacktrace}<br>", CommonUtilities.commonUtilities.TakeScreenshot(driver, TestContext.CurrentContext.Test.Name));
+                        ExtentReportHelper.GetInstance(strAUT, driver).SetTestStatusFail($"<br>{errorMessage}<br>Stack Trace: <br>{stacktrace}<br>", SeleniumUtilities.seleniumUtilities.TakeScreenshot(driver, TestContext.CurrentContext.Test.Name));
                         break;
                     case TestStatus.Skipped:
                         ExtentReportHelper.GetInstance(strAUT, driver).SetTestStatusSkipped();

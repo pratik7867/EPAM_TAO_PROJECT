@@ -45,17 +45,17 @@ namespace EPAM_TAO_UI_POM.Pages.Login
 
         public ProductsPage LogIntoApplication(string strUserName, string strPassword)
         {
-            CommonUtilities.commonUtilities.WaitForPageLoad(driver, 10);
+            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
 
-            txtUserNameElement = CommonUtilities.commonUtilities.GetElement(driver, txtUserNameLocator);
+            txtUserNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtUserNameLocator);
             txtUserNameElement.Clear();
             txtUserNameElement.SendKeys(strUserName);
 
-            txtPasswordElement = CommonUtilities.commonUtilities.GetElement(driver, txtPasswordLocator);
+            txtPasswordElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtPasswordLocator);
             txtPasswordElement.Clear();
             txtPasswordElement.SendKeys(strPassword);
 
-            btnLoginElement = CommonUtilities.commonUtilities.GetElement(driver, btnLoginLocator);
+            btnLoginElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnLoginLocator);
             btnLoginElement.Click();
 
             return ProductsPage.GetInstance(driver);

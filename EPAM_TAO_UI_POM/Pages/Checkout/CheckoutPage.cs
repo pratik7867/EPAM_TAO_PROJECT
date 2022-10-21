@@ -56,41 +56,41 @@ namespace EPAM_TAO_UI_POM.Pages.Checkout
 
         public void FillUpCheckoutDetailsAndContiue(string strFirstName, string strLastName, string strPostalCode)
         {
-            CommonUtilities.commonUtilities.WaitForPageLoad(driver, 10);
+            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
 
-            txtFirstNameElement = CommonUtilities.commonUtilities.GetElement(driver, txtFirstNameLocator);
+            txtFirstNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtFirstNameLocator);
             txtFirstNameElement.Clear();
             txtFirstNameElement.SendKeys(strFirstName);
 
-            txtLastNameElement = CommonUtilities.commonUtilities.GetElement(driver, txtLastNameLocator);
+            txtLastNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtLastNameLocator);
             txtLastNameElement.Clear();
             txtLastNameElement.SendKeys(strLastName);
 
-            txtPostalCodeElement = CommonUtilities.commonUtilities.GetElement(driver, txtPostalCodeLocator);
+            txtPostalCodeElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtPostalCodeLocator);
             txtPostalCodeElement.Clear();
             txtPostalCodeElement.SendKeys(strPostalCode);
 
-            btnContinueElement = CommonUtilities.commonUtilities.GetElement(driver, btnContinueLocator);
+            btnContinueElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnContinueLocator);
             btnContinueElement.Click();
         }
 
         public string GetProductName()
         {
-            divProductNameElement = CommonUtilities.commonUtilities.GetElement(driver, divProductNameLocator);
+            divProductNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, divProductNameLocator);
 
             return divProductNameElement.Text;
         }
 
         public string GetProductPrice()
         {
-            divProductPriceElement = CommonUtilities.commonUtilities.GetElement(driver, divProductPriceLocator);
+            divProductPriceElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, divProductPriceLocator);
 
             return divProductPriceElement.Text;
         }
 
         public void ClickOnFinish()
         {
-            btnFinishElement = CommonUtilities.commonUtilities.GetElement(driver, btnFinishLocator);
+            btnFinishElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnFinishLocator);
             btnFinishElement.Click();
         }
 

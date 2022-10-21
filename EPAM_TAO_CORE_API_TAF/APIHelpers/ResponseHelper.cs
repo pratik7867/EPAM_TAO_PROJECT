@@ -4,7 +4,7 @@ using System.Net;
 using System.Reflection;
 using Newtonsoft.Json;
 using RestSharp;
-using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 
 namespace EPAM_TAO_CORE_API_TAF.APIHelpers
 {

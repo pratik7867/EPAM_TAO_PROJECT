@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_CORE_API_TAF.APIHelpers;
-using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
-using System.Reflection;
 
 namespace EPAM_TAO_API_TESTS.BaseAPITestConfig
 {

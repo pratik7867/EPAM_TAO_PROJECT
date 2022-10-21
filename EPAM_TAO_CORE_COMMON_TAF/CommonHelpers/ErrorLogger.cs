@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using OpenQA.Selenium;
 
-namespace EPAM_TAO_CORE_UI_TAF.UI_Helpers
+namespace EPAM_TAO_CORE_COMMON_TAF.CommonHelpers
 {
     public class ErrorLogger
     {
@@ -35,24 +35,47 @@ namespace EPAM_TAO_CORE_UI_TAF.UI_Helpers
             }
         }
 
-        public void ErrorLog(string strMethodName, Exception errorEx, IWebDriver driver = null)
+        public void ErrorLog(string strMethodName, Exception errorEx)
+        {
+            try
+            {                
+                lock (syncLock)
+                {
+                    if (!Directory.Exists(strPathToErrorLogFolder))
+                    {
+                        Directory.CreateDirectory(strPathToErrorLogFolder);
+                    }
+
+                    using (StreamWriter streamWriter = File.AppendText(strPathToErrorLogFile))
+                    {
+                        streamWriter.AutoFlush = true;
+
+                        streamWriter.WriteLine("Date, Time: {0}, {1}", DateTime.Now.ToString("dd-MM-yyyy"), DateTime.Now.ToShortTimeString());
+                        streamWriter.WriteLine("Method: " + strMethodName);
+                        streamWriter.WriteLine("Exception Message: " + errorEx.Message);
+                        streamWriter.WriteLine("\n");
+                        streamWriter.WriteLine("Exception Stack Trace: " + errorEx.StackTrace);
+                        streamWriter.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                        streamWriter.WriteLine("\n");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorLog(MethodBase.GetCurrentMethod().Name, ex);
+            }
+        }
+
+        public void ErrorLog(string strMethodName, Exception errorEx, IWebDriver driver)
         {
             try
             {
-                if(driver != null)
-                {
-                    strBrowserName = DriverCapabilities.driverCapabilities.GetBrowserName(driver);
-                    strBrowserVersion = DriverCapabilities.driverCapabilities.GetBrowserVersion(driver);
-                }
-                else
-                {
-                    strBrowserName = "NA";
-                    strBrowserVersion = "NA";
-                }
+                strBrowserName = DriverCapabilities.driverCapabilities.GetBrowserName(driver);
+                strBrowserVersion = DriverCapabilities.driverCapabilities.GetBrowserVersion(driver);
 
-                lock(syncLock)
+                lock (syncLock)
                 {
-                    if(!Directory.Exists(strPathToErrorLogFolder))
+                    if (!Directory.Exists(strPathToErrorLogFolder))
                     {
                         Directory.CreateDirectory(strPathToErrorLogFolder);
                     }
@@ -73,11 +96,11 @@ namespace EPAM_TAO_CORE_UI_TAF.UI_Helpers
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ErrorLog(MethodBase.GetCurrentMethod().Name, ex);
             }
         }
-        
+
     }
 }

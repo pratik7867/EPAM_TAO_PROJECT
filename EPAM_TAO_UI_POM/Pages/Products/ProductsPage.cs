@@ -47,25 +47,25 @@ namespace EPAM_TAO_UI_POM.Pages.Products
 
         public string getProductPrice(string strProductName)
         {
-            CommonUtilities.commonUtilities.WaitForPageLoad(driver, 10);            
+            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);            
 
-            divProductPriceLocator = By.XPath(CommonUtilities.commonUtilities.GetDynamicLocatorString(strDivProductPriceLocatorValue, strProductName, " ", "-").ToLower());
-            divProductPriceElement = CommonUtilities.commonUtilities.WaitForElementToBeVisible(driver, divProductPriceLocator, 5);
+            divProductPriceLocator = By.XPath(SeleniumUtilities.seleniumUtilities.GetDynamicLocatorString(strDivProductPriceLocatorValue, strProductName, " ", "-").ToLower());
+            divProductPriceElement = SeleniumUtilities.seleniumUtilities.WaitForElementToBeVisible(driver, divProductPriceLocator, 5);
 
             return divProductPriceElement.Text;
         }
 
         public void AddToCart(string strProductName)
         {
-            btnAddToCartLocator = By.Id(CommonUtilities.commonUtilities.GetDynamicLocatorString(strBtnAddToCartLocatorValue, strProductName, " ", "-").ToLower());
-            btnAddToCartElement = CommonUtilities.commonUtilities.WaitForElementToBeVisible(driver, btnAddToCartLocator, 5);
+            btnAddToCartLocator = By.Id(SeleniumUtilities.seleniumUtilities.GetDynamicLocatorString(strBtnAddToCartLocatorValue, strProductName, " ", "-").ToLower());
+            btnAddToCartElement = SeleniumUtilities.seleniumUtilities.WaitForElementToBeVisible(driver, btnAddToCartLocator, 5);
 
             btnAddToCartElement.Click();            
         }
 
         public CartPage ClickOnShoppingCart()
         {
-            btnShoppingCartElement = CommonUtilities.commonUtilities.GetElement(driver, btnShoppingCartLocator);
+            btnShoppingCartElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnShoppingCartLocator);
             btnShoppingCartElement.Click();
 
             return CartPage.GetInstance(driver);

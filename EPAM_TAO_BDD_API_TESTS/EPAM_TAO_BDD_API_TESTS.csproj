@@ -167,6 +167,10 @@
       <Project>{410a81b0-8a03-4f1b-975f-12080783b1ea}</Project>
       <Name>EPAM_TAO_CORE_API_TAF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EPAM_TAO_CORE_COMMON_TAF\EPAM_TAO_CORE_COMMON_TAF.csproj">
+      <Project>{12a7c078-83cc-43eb-968f-0a0dc21cff4d}</Project>
+      <Name>EPAM_TAO_CORE_COMMON_TAF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SpecFlow.3.9.74\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.9.74\build\SpecFlow.targets')" />

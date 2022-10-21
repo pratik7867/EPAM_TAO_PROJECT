@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 
-namespace EPAM_TAO_CORE_UI_TAF.UI_Helpers
+namespace EPAM_TAO_CORE_COMMON_TAF.CommonHelpers
 {
     internal class DriverCapabilities
     {

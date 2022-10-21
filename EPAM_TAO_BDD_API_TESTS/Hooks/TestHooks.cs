@@ -2,8 +2,7 @@
 using System.Reflection;
 using System.Configuration;
 using TechTalk.SpecFlow;
-using EPAM_TAO_CORE_API_TAF.APIHelpers;
-using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 
 namespace EPAM_TAO_BDD_API_TESTS.Hooks
 {   
