@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_UI_POM.Pages.Products;
 
 namespace EPAM_TAO_UI_POM.Pages.Login
@@ -44,19 +45,25 @@ namespace EPAM_TAO_UI_POM.Pages.Login
         #region Action Methods
 
         public ProductsPage LogIntoApplication(string strUserName, string strPassword)
-        {
+        {            
             SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
+            Log4NetLogger.log.Info("Waited 10 sec. for page to load");
 
             txtUserNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtUserNameLocator);
             txtUserNameElement.Clear();
+            Log4NetLogger.log.Info("Cleared the Username textbox");
             txtUserNameElement.SendKeys(strUserName);
+            Log4NetLogger.log.Info("Filled up the Username");
 
             txtPasswordElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtPasswordLocator);
             txtPasswordElement.Clear();
+            Log4NetLogger.log.Info("Cleared the Password textbox");
             txtPasswordElement.SendKeys(strPassword);
+            Log4NetLogger.log.Info("Filled up the Password");
 
             btnLoginElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnLoginLocator);
             btnLoginElement.Click();
+            Log4NetLogger.log.Info("Clicked on Login button");
 
             return ProductsPage.GetInstance(driver);
         }

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_UI_POM.Pages.Checkout;
 
 namespace EPAM_TAO_UI_POM.Pages.Cart
@@ -41,8 +42,9 @@ namespace EPAM_TAO_UI_POM.Pages.Cart
         public string GetProductPrice()
         {
             SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
+            Log4NetLogger.log.Info("Waited 10 sec. for page to load");
 
-            divProductPriceElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, divProductPriceLocator);
+            divProductPriceElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, divProductPriceLocator);            
 
             return divProductPriceElement.Text;
         }
@@ -51,6 +53,7 @@ namespace EPAM_TAO_UI_POM.Pages.Cart
         {
             btnCheckoutElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnCheckoutLocator);
             btnCheckoutElement.Click();
+            Log4NetLogger.log.Info("Clicked on Checkout button");
 
             return CheckoutPage.GetInstance(driver);
         }

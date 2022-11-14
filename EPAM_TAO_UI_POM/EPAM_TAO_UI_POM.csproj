@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -52,6 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EPAM_TAO_CORE_COMMON_TAF\EPAM_TAO_CORE_COMMON_TAF.csproj">
+      <Project>{12A7C078-83CC-43EB-968F-0A0DC21CFF4D}</Project>
+      <Name>EPAM_TAO_CORE_COMMON_TAF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EPAM_TAO_CORE_UI_TAF\EPAM_TAO_CORE_UI_TAF.csproj">
       <Project>{f61fa2f7-187a-4915-b1e6-d2f57e1e1c01}</Project>
       <Name>EPAM_TAO_CORE_UI_TAF</Name>

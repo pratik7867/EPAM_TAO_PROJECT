@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 using EPAM_TAO_UI_POM.Pages.Cart;
 
 namespace EPAM_TAO_UI_POM.Pages.Products
@@ -47,10 +48,12 @@ namespace EPAM_TAO_UI_POM.Pages.Products
 
         public string getProductPrice(string strProductName)
         {
-            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);            
+            SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
+            Log4NetLogger.log.Info("Waited 10 sec. for page to load");
 
             divProductPriceLocator = By.XPath(SeleniumUtilities.seleniumUtilities.GetDynamicLocatorString(strDivProductPriceLocatorValue, strProductName, " ", "-").ToLower());
             divProductPriceElement = SeleniumUtilities.seleniumUtilities.WaitForElementToBeVisible(driver, divProductPriceLocator, 5);
+            Log4NetLogger.log.Info("Waited 5 sec. for Product Price Element to be Visible");
 
             return divProductPriceElement.Text;
         }
@@ -59,14 +62,17 @@ namespace EPAM_TAO_UI_POM.Pages.Products
         {
             btnAddToCartLocator = By.Id(SeleniumUtilities.seleniumUtilities.GetDynamicLocatorString(strBtnAddToCartLocatorValue, strProductName, " ", "-").ToLower());
             btnAddToCartElement = SeleniumUtilities.seleniumUtilities.WaitForElementToBeVisible(driver, btnAddToCartLocator, 5);
+            Log4NetLogger.log.Info("Waited 5 sec. for Add To Cart button Element to be Visible");
 
-            btnAddToCartElement.Click();            
+            btnAddToCartElement.Click();
+            Log4NetLogger.log.Info("Clicked on Add To Cart button");
         }
 
         public CartPage ClickOnShoppingCart()
         {
             btnShoppingCartElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnShoppingCartLocator);
             btnShoppingCartElement.Click();
+            Log4NetLogger.log.Info("Clicked on Shopping Cart button");
 
             return CartPage.GetInstance(driver);
         }

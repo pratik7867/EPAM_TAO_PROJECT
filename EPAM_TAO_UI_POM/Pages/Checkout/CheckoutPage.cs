@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using EPAM_TAO_CORE_UI_TAF.UI_Helpers;
+using EPAM_TAO_CORE_COMMON_TAF.CommonHelpers;
 
 namespace EPAM_TAO_UI_POM.Pages.Checkout
 {
@@ -57,21 +58,29 @@ namespace EPAM_TAO_UI_POM.Pages.Checkout
         public void FillUpCheckoutDetailsAndContiue(string strFirstName, string strLastName, string strPostalCode)
         {
             SeleniumUtilities.seleniumUtilities.WaitForPageLoad(driver, 10);
+            Log4NetLogger.log.Info("Waited 10 sec. for page to load");
 
             txtFirstNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtFirstNameLocator);
             txtFirstNameElement.Clear();
+            Log4NetLogger.log.Info("Cleared the Fistname textbox");
             txtFirstNameElement.SendKeys(strFirstName);
+            Log4NetLogger.log.Info("Filled up the Firstname");
 
             txtLastNameElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtLastNameLocator);
             txtLastNameElement.Clear();
+            Log4NetLogger.log.Info("Cleared the Lastname textbox");
             txtLastNameElement.SendKeys(strLastName);
+            Log4NetLogger.log.Info("Filled up the Lastname");
 
             txtPostalCodeElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, txtPostalCodeLocator);
             txtPostalCodeElement.Clear();
+            Log4NetLogger.log.Info("Cleared the Postalcode textbox");
             txtPostalCodeElement.SendKeys(strPostalCode);
+            Log4NetLogger.log.Info("Filled up the Postalcode");
 
             btnContinueElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnContinueLocator);
             btnContinueElement.Click();
+            Log4NetLogger.log.Info("Clicked on Continue button");
         }
 
         public string GetProductName()
@@ -92,6 +101,7 @@ namespace EPAM_TAO_UI_POM.Pages.Checkout
         {
             btnFinishElement = SeleniumUtilities.seleniumUtilities.GetElement(driver, btnFinishLocator);
             btnFinishElement.Click();
+            Log4NetLogger.log.Info("Clicked on Finish button");
         }
 
         #endregion
