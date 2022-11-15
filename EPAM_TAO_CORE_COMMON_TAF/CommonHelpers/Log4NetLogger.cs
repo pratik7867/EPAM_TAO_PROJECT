@@ -3,6 +3,8 @@ using System.IO;
 using System.Reflection;
 using log4net;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config")]
+
 namespace EPAM_TAO_CORE_COMMON_TAF.CommonHelpers
 {
     public class Log4NetLogger
