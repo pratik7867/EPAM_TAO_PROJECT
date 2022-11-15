@@ -44,13 +44,20 @@ namespace EPAM_TAO_CORE_COMMON_TAF.CommonHelpers
 
         public void ConfigureLogFile()
         {
-            if (!Directory.Exists(strPathToLogFolder))
+            try
             {
-                Directory.CreateDirectory(strPathToLogFolder);
+                if (!Directory.Exists(strPathToLogFolder))
+                {
+                    Directory.CreateDirectory(strPathToLogFolder);
+                }
+                var appender = (log4net.Appender.FileAppender)LogManager.GetRepository().GetAppenders()[1];
+                appender.File = strPathToLogFile;
+                appender.ActivateOptions();
             }
-            var appender = (log4net.Appender.FileAppender)LogManager.GetRepository().GetAppenders()[1];
-            appender.File = strPathToLogFile;
-            appender.ActivateOptions();
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
