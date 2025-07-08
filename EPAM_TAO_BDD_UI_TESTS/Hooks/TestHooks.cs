@@ -20,7 +20,7 @@ namespace EPAM_TAO_BDD_UI_TESTS.Hooks
 
         public static readonly IObjectContainer objectContainer = new ObjectContainer();
 
-        [BeforeScenario]
+        [BeforeScenario]        
         public void BeforeScenario(ScenarioContext scenarioContext)
         {
             //TODO: implement logic that has to run before executing each scenario

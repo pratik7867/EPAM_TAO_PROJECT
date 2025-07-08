@@ -16,7 +16,7 @@ namespace EPAM_TAO_BDD_UI_TESTS.UITests.Steps.Checkout
         {            
         }
 
-        [Given(@"the user is logged in with valid credentials ""(.*)"", ""(.*)""")]
+        [Given(@"the user is logged in with valid credentials ""(.*)"", ""(.*)""")]        
         public void GivenTheUserIsLoggedInWithValidCredentials(string strUserName, string strPassword)
         {
             productsPage = LogInPage.GetInstance(TestHooks.objectContainer.Resolve<IWebDriver>()).LogIntoApplication(strUserName, strPassword);
